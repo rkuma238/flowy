@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+p {
+  margin-top: 50px;
+  color: navy;
+  text-indent: 30px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+    
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 20px;
+  resize: vertical;
+}
+    
+input[type=number], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 20px;
+  resize: vertical;    
+}
+    
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+</head>
+<body>
+
+<p>Tenant Details</p>
+<p id="id">Tenant id: </p> 
+<div class="container">
+  <form action="/action_page.php">
+    <label for="Tname">Tenant Name</label>
+    <input type="text" id="Tenant_name" name="Tenant_name" placeholder="Your name..">
+    <div> 
+      <label for="lname">Number of Tenant</label>
+      <input type="number" id="nubmer_of_tenant" name="nubmer_of_tenant" placeholder="number of tenant..">
+    </div> 
+    
+    <div>
+     <label for="country">Add Parameter</label>
+     <select id="country" name="country">
+      <option value="australia">Australia</option>
+      <option value="canada">Canada</option>
+      <option value="usa">USA</option>
+     </select>
+    </div>
+    <label for="subject">Description</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div> 
+    
+<script>
+function parse_query_string(query) {
+  var vars = query.split("&");
+  var dict = {};    
+  var query_string = {};
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split("=");
+    var key = decodeURIComponent(pair[0]);
+    var value = decodeURIComponent(pair[1]); 
+    dict[key]=value;  
+  }
+  return dict    
+};
+var dict = parse_query_string(document.location.search);  
+console.log(dict)
+document.getElementById('id').innerHTML += dict['?id'];
+//document.getElementById('Tenant_name').value = value;
+    
+</script>
+    
+
+</body>
+</html>

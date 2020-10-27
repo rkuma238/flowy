@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<link href="/Users/aviuser/Downloads/flowy-master/flowy.min.css"rel="stylesheet" />
+<script src="/Users/aviuser/Downloads/flowy-masterflowy.min.js"></script>
+
+<body>
+
+<div id="canvas"></div>
+
+<div class="create-flowy">
+Block 1
+</div>
+
+<div class="create-flowy">
+Block 2
+</div>
+ 
+<div class="create-flowy">
+  Block 3
+</div>
+<script>flowy(document.getElementById("canvas")); 
+    
+function onGrab(block){
+ alert("hi")
+};
+
+function onRelease(){
+  alert("hi")
+};
+
+function onSnap(block, first, parent){
+  alert("hi")
+};
+
+function onRearrange(block, parent){
+    alert("hi")
+};
+
+flowy(document.getElementById("canvas"), onGrab, onRelease, onSnap, onRearrange);
+
+var spacing_x = 20;
+var spacing_y = 50;
+
+flowy(document.getElementById("canvas"), onGrab, onRelease, onSnap, onRearrange, spacing_x, spacing_y);
+    
+flowy.output();
+
+    
+</script>
+
+</body>
+</html>
